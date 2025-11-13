@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <div class="menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="logo">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="ძიება">
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <div class="mic-icon">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="create-btn">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <i class="fas fa-bell"></i>
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="header-tags">
+            <div class="tag active">ყველა</div>
+            <div class="tag">მუსიკა</div>
+            <div class="tag">თამაშები</div>
+            <div class="tag">პროგრამირება</div>
+            <div class="tag">ლაივები</div>
+            <div class="tag">კომედია</div>
+            <div class="tag">სპორტი</div>
+            <div class="tag">ახალი ამბები</div>
+            <div class="tag">კულინარია</div>
+            <div class="tag">ფილმები</div>
+            <div class="tag">ტექნოლოგია</div>
+            <div class="tag">განათლება</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside>
+            <div class="sidebar-item active">
+                <i class="fas fa-house"></i>
+                <span>მთავარი</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-fire"></i>
+                <span>ტრენდული</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fa-solid fa-tv"></i>
+                <span>გამოწერები</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-folder"></i>
+                <span>ბიბლიოთეკა</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-history"></i>
+                <span>ისტორია</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fa-solid fa-download"></i>
+                <span>ჩამოტვირთვები</span>
+            </div>
+            <div class="sidebar-section">
+                <h3>გამოწერები</h3>
+                <div class="sidebar-item">
+                    <div class="channel-avatar small">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>WebDev Academy</span>
+                </div>
+                <div class="sidebar-item">
+                    <div class="channel-avatar small">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>Code Master</span>
+                </div>
+                <div class="sidebar-item">
+                    <div class="channel-avatar small">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>Frontend Guru</span>
+                </div>
+                <div class="sidebar-item">
+                    <div class="channel-avatar small">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>Python Pro</span>
+                </div>
+            </div>
+        </aside>
+        
+        <main>
+        
+            <div class="video-container">
+                <!-- ვიდეო 1 აი თურმე რაში გვჭირდება დაკომენტარება -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">10:25</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>ჩემს მაგივრად დაწერეთ კოდიი help</h3>
+                            <p class="channel">WebDev Academy</p>
+                            <p class="stats">1.2M ნახვა • 1 წლის წინ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ვიდეო 2 -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">15:42</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>JavaScript-ის საიდუმლოებები პლზ ჰელპ მე</h3>
+                            <p class="channel">Code Master</p>
+                            <p class="stats">850K ნახვა • 6 თვის წინ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ვიდეო 3 -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">8:17</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>როგორ არ დაგვაკლდეს ქულა დავალებაში მას შემდეგ რაც 24/7 კოდს ვწერდით</h3>
+                            <p class="channel">Frontend Guru</p>
+                            <p class="stats">520K ნახვა • 3 თვის წინ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ვიდეო 4 -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">22:05</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>Python დამწყებთათვის</h3>
+                            <p class="channel">Python Pro</p>
+                            <p class="stats">1.5M ნახვა • 8 თვის წინ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ვიდეო 5 -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">12:30</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>CSS Grid vs Flexbox</h3>
+                            <p class="channel">CSS Wizard</p>
+                            <p class="stats">320K ნახვა • 1 წლის წინ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ვიდეო 6 -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">18:45</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>Git & GitHub - ვერსიების კონტროლი</h3>
+                            <p class="channel">Dev Tools</p>
+                            <p class="stats">410K ნახვა • 5 თვის წინ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ვიდეო 7 -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">14:20</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>ვებ დიზაინის ტენდენციები 2023 </h3>
+                            <p class="channel">Design Pro</p>
+                            <p class="stats">280K ნახვა • 2 თვის წინ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ვიდეო 8 -->
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <div class="duration">25:10</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="details">
+                            <h3>Node.js - Backend Development კარგი საიტიაა? :(</h3>
+                            <p class="channel">Backend Master</p>
+                            <p class="stats">610K ნახვა • 4 თვის წინ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
