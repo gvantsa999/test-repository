@@ -1,0 +1,1096 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #0f0f0f;
+    overflow-x: hidden;
+}
+
+/* ჰიპერბმულების სტილი - შავი ფერი */
+a {
+    color: #0f0f0f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0f0f0f;
+    text-decoration: none;
+}
+
+/* საიტის ყველა ლინკი შავი ფერით */
+.sidebar-link,
+.create-option,
+.menu-option,
+.footer-links a,
+.video-link,
+.notification-option {
+    color: #0f0f0f;
+}
+
+.sidebar-link:hover,
+.create-option:hover,
+.menu-option:hover,
+.footer-links a:hover,
+.video-link:hover,
+.notification-option:hover {
+    color: #0f0f0f;
+}
+
+header {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    height: 56px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* ბურგერ მენიუს ჩეკბოქსი */
+.burger-checkbox {
+    display: none;
+}
+
+.menu-icon {
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fa-youtube {
+    color: #ff0000;
+    font-size: 24px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    flex: 0 1 640px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    font-size: 16px;
+    height: 40px;
+}
+
+.search-btn {
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    padding: 8px 20px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.mic-icon {
+    margin-left: 12px;
+    background: #f9f9f9;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right i {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* შექმნის ჩამოშლადი მენიუ */
+.create-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.create-checkbox {
+    display: none;
+}
+
+.create-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+    height: 36px;
+    border-radius: 18px;
+    background: #f0f0f0;
+    padding: 0 12px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.create-btn:hover {
+    background: #e5e5e5;
+}
+
+.create-text {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.create-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+    margin-top: 8px;
+}
+
+.create-checkbox:checked + .create-btn + .create-menu {
+    display: block;
+}
+
+.create-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #0f0f0f;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.create-option:hover {
+    background: #f2f2f2;
+}
+
+.create-option i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #606060;
+}
+
+/* შეტყობინებების დროპდაუნ მენიუ */
+.notifications-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.notifications-checkbox {
+    display: none;
+}
+
+.notifications-btn {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #cc0000;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.notifications-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    min-width: 360px;
+    z-index: 1000;
+    display: none;
+    margin-top: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.notifications-checkbox:checked + .notifications-btn + .notifications-menu {
+    display: block;
+}
+
+.notifications-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.notifications-header h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f0f0f;
+}
+
+.notifications-content {
+    padding: 0;
+}
+
+.notification-section {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 12px 0;
+}
+
+.notification-section:last-child {
+    border-bottom: none;
+}
+
+.notification-section h4 {
+    padding: 0 20px 8px 20px;
+    font-size: 14px;
+    color: #606060;
+    font-weight: 500;
+}
+
+.notification-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #0f0f0f;
+    transition: background 0.2s ease;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.notification-option:hover {
+    background: #f2f2f2;
+}
+
+.notification-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.notification-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.notification-details {
+    flex: 1;
+}
+
+.notification-title {
+    font-weight: 400;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.notification-time {
+    color: #606060;
+    font-size: 12px;
+}
+
+/* მომხმარებლის დროპდაუნ მენიუ */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-checkbox {
+    display: none;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    padding: 16px 0;
+    min-width: 300px;
+    z-index: 1000;
+    display: none;
+    margin-top: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.user-checkbox:checked + .user-avatar + .user-menu {
+    display: block;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px 16px 20px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 8px;
+}
+
+.user-avatar.large {
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+.user-details h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #0f0f0f;
+}
+
+.user-details p {
+    font-size: 14px;
+    color: #606060;
+}
+
+.menu-section {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 8px 0;
+    margin-bottom: 8px;
+}
+
+.menu-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.menu-option {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #0f0f0f;
+    transition: background 0.2s ease;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.menu-option:hover {
+    background: #f2f2f2;
+}
+
+.menu-option i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #606060;
+}
+
+.container {
+    display: flex;
+    min-height: calc(100vh - 56px);
+}
+
+/* ჰამბურგერის მენიუ */
+.burger-menu {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 240px;
+    height: 100vh;
+    background: white;
+    z-index: 200;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+/* ჩეკბოქსის მიხედვით მენიუს გახსნა */
+#burger-toggle:checked ~ .burger-menu {
+    left: 0;
+}
+
+.burger-menu-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 24px;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 201;
+}
+
+.burger-menu-content {
+    padding: 12px 0;
+}
+
+/* ფიქსირებული გვერდითი პანელი */
+.fixed-sidebar {
+    width: 72px;
+    background: white;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100vh - 56px);
+    padding: 16px 0;
+    overflow-y: auto;
+    z-index: 99;
+}
+
+.fixed-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s ease;
+    gap: 6px;
+}
+
+.sidebar-item:hover {
+    background: #f2f2f2;
+}
+
+.sidebar-item.active {
+    background: #e5e5e5;
+    font-weight: 500;
+}
+
+.sidebar-item i {
+    width: 24px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar-item span {
+    font-size: 10px;
+    text-align: center;
+}
+
+/* ბურგერ მენიუში ელემენტების სტილი */
+.burger-menu .sidebar-item {
+    flex-direction: row;
+    padding: 10px 24px;
+    gap: 24px;
+    align-items: center;
+}
+
+.burger-menu .sidebar-item span {
+    font-size: 14px;
+    text-align: left;
+}
+
+.sidebar-section {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+.sidebar-section h3 {
+    padding: 8px 24px;
+    font-size: 14px;
+    color: #606060;
+    font-weight: 500;
+}
+
+.channel-avatar.small {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.channel-avatar.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ბურგერ მენიუს ფუტერი */
+.burger-menu-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 16px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #606060;
+    text-decoration: none;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.footer-links a:hover {
+    color: #0f0f0f;
+}
+
+.copyright {
+    color: #909090;
+    font-size: 12px;
+    margin-top: 16px;
+}
+
+/* მთავარი კონტენტი */
+.main-content {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    margin-left: 72px;
+    width: calc(100% - 72px);
+}
+
+/* ვიდეო კონტეინერი */
+.video-container {
+    width: min(400px, 90vw);
+    height: min(700px, 85vh);
+    background: #000;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+}
+
+.short-video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+/* ვიდეოს კონტროლები ზედა მარცხენა კუთხეში */
+.video-controls-top {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    width: min(40px, 8vw);
+    height: min(40px, 8vw);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.control-btn i {
+    color: white;
+    font-size: min(18px, 4vw);
+}
+
+/* სამი წერტილი ზედა მარჯვენა კუთხეში */
+.more-options {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    width: min(40px, 8vw);
+    height: min(40px, 8vw);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.more-options:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.more-options i {
+    color: white;
+    font-size: min(18px, 4vw);
+}
+
+/* ვიდეოს ინფორმაცია ვიდეოს შიგნით */
+.video-info-inside {
+    position: absolute;
+    left: 15px;
+    bottom: 40px;
+    right: 15px;
+    color: white;
+    z-index: 10;
+}
+
+.channel-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.channel-avatar {
+    width: min(40px, 8vw);
+    height: min(40px, 8vw);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+    flex-shrink: 0;
+}
+
+.channel-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.channel-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.channel-name {
+    font-weight: 600;
+    font-size: min(16px, 4vw);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.subscribe-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+    padding: min(6px, 1vw) min(16px, 3vw);
+    border-radius: 18px;
+    font-size: min(13px, 3vw);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.subscribe-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.video-title {
+    font-size: min(18px, 4.5vw);
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.video-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: min(14px, 3.5vw);
+    color: #ccc;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+/* მარჯვენა პანელი ვიდეოს გარეთ */
+.right-panel-outside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-left: 5px;
+    flex-shrink: 0;
+}
+
+.right-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.right-btn:hover {
+    transform: scale(1.05);
+}
+
+.right-icon {
+    width: min(50px, 10vw);
+    height: min(50px, 10vw);
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    border: 1px solid #e0e0e0;
+}
+
+.right-icon i {
+    font-size: min(20px, 4vw);
+    color: #333;
+}
+
+.right-btn span {
+    color: #333;
+    font-size: min(12px, 2.5vw);
+    font-weight: 500;
+    text-align: center;
+}
+
+.album-cover {
+    width: min(50px, 10vw);
+    height: min(50px, 10vw);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #333;
+    margin-top: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ისრები მარჯვენა მხარეს */
+.arrows-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.arrow-btn {
+    width: min(45px, 9vw);
+    height: min(45px, 9vw);
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background: #f8f8f8;
+    transform: scale(1.1);
+}
+
+.arrow-btn i {
+    color: #333;
+    font-size: min(18px, 4vw);
+}
+
+/* რესპონსივობა */
+@media (max-width: 1200px) {
+    .search-container {
+        flex: 0 1 400px;
+    }
+}
+
+@media (max-width: 900px) {
+    .search-container {
+        display: none;
+    }
+    
+    .right-panel-outside {
+        margin-left: 3px;
+    }
+    
+    .arrows-right {
+        right: 15px;
+    }
+}
+
+/* 790px-ზე ნაკლებზე მარცხენა მხარის აიქონები ქრება */
+@media (max-width: 790px) {
+    .fixed-sidebar {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .create-text {
+        display: none;
+    }
+    
+    .create-btn {
+        width: 36px;
+        padding: 0;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .video-container {
+        width: min(350px, 85vw);
+        height: min(600px, 80vh);
+    }
+    
+    .right-panel-outside {
+        margin-left: 2px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 56px);
+    }
+    
+    .fixed-sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .sidebar-item {
+        padding: 8px 0;
+    }
+    
+    .main-content {
+        flex: 1;
+        padding: 10px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .video-container {
+        width: 95%;
+        height: 60vh;
+        max-height: 500px;
+    }
+    
+    .right-panel-outside {
+        flex-direction: row;
+        margin-left: 0;
+        gap: 25px;
+        order: 2;
+    }
+    
+    .arrows-right {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        gap: 20px;
+        order: 3;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-right {
+        gap: 15px;
+    }
+    
+    .create-btn, .user-avatar {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .video-container {
+        height: 55vh;
+    }
+    
+    .right-panel-outside {
+        gap: 20px;
+    }
+    
+    .video-info-inside {
+        bottom: 30px;
+    }
+    
+    .channel-info {
+        gap: 8px;
+    }
+    
+    .video-stats {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-left {
+        gap: 15px;
+    }
+    
+    .logo span {
+        font-size: 16px;
+    }
+    
+    .video-container {
+        height: 50vh;
+    }
+    
+    .right-panel-outside {
+        gap: 15px;
+    }
+    
+    .video-info-inside {
+        bottom: 25px;
+        left: 10px;
+        right: 10px;
+    }
+    
+    .video-controls-top {
+        top: 10px;
+        left: 10px;
+    }
+    
+    .more-options {
+        top: 10px;
+        right: 10px;
+    }
+}

@@ -1,3 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #0f0f0f;
+    overflow-x: hidden;
+}
+
 /* ჰიპერბმულების სტილი - შავი ფერი */
 a {
     color: #0f0f0f;
@@ -11,7 +24,6 @@ a:hover {
 
 /* საიტის ყველა ლინკი შავი ფერით */
 .sidebar-link,
-.tag,
 .create-option,
 .menu-option,
 .footer-links a,
@@ -21,27 +33,12 @@ a:hover {
 }
 
 .sidebar-link:hover,
-.tag:hover,
 .create-option:hover,
 .menu-option:hover,
 .footer-links a:hover,
 .video-link:hover,
 .notification-option:hover {
     color: #0f0f0f;
-}
-
-/* დანარჩენი CSS კოდი */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
-body {
-    background-color: #f9f9f9;
-    color: #0f0f0f;
-    overflow-x: hidden;
 }
 
 header {
@@ -205,8 +202,6 @@ nav {
     z-index: 1000;
     display: none;
     margin-top: 8px;
-    max-width: calc(100vw - 20px);
-    overflow-x: hidden;
 }
 
 .create-checkbox:checked + .create-btn + .create-menu {
@@ -224,7 +219,6 @@ nav {
     transition: background 0.2s ease;
     font-size: 14px;
     font-weight: 400;
-    white-space: nowrap;
 }
 
 .create-option:hover {
@@ -524,84 +518,9 @@ nav {
     text-overflow: ellipsis;
 }
 
-/* ისრების სტილი მენიუ ოფშენებში */
-.menu-option::after {
-    content: "→";
-    font-size: 14px;
-    color: #606060;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    flex-shrink: 0;
-}
-
-.menu-option:hover::after {
-    opacity: 1;
-}
-
-/* ჰედერის ტეგების სტილი */
-.header-tags {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    border-top: 1px solid #e5e5e5;
-    overflow-x: auto;
-    background: white;
-    position: relative;
-}
-
-.header-tags::-webkit-scrollbar {
-    display: none;
-}
-
-.tag {
-    background: #f2f2f2;
-    padding: 6px 12px;
-    border-radius: 8px;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    color: #0f0f0f;
-    display: inline-block;
-    flex-shrink: 0;
-}
-
-.tag.active {
-    background: #0f0f0f;
-    color: white;
-}
-
-.tag:hover {
-    background: #e5e5e5;
-    text-decoration: none;
-    color: #0f0f0f;
-}
-
-/* ისრის აიქონი ტეგებისთვის */
-.tags-arrow {
-    position: sticky;
-    right: 0;
-    background: linear-gradient(90deg, transparent, white 50%);
-    padding: 6px 16px 6px 30px;
-    font-size: 16px;
-    color: #606060;
-    cursor: pointer;
-    flex-shrink: 0;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tags-arrow:hover {
-    color: #0f0f0f;
-}
-
 .container {
     display: flex;
-    min-height: calc(100vh - 106px);
+    min-height: calc(100vh - 56px);
 }
 
 /* ჰამბურგერის მენიუ */
@@ -644,9 +563,9 @@ nav {
     width: 72px;
     background: white;
     position: fixed;
-    top: 106px;
+    top: 56px;
     left: 0;
-    height: calc(100vh - 106px);
+    height: calc(100vh - 56px);
     padding: 16px 0;
     overflow-y: auto;
     z-index: 99;
@@ -765,171 +684,313 @@ nav {
 .main-content {
     flex: 1;
     padding: 24px;
-    margin-left: 72px; /* გვერდითი მენიუს სიგანე */
+    margin-left: 72px;
     width: calc(100% - 72px);
     transition: all 0.3s ease;
 }
 
-.video-container {
+/* ვიდეოების ზემოთ კონტროლები */
+.videos-controls {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0 8px;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
+    gap: 16px;
 }
 
-.video-card {
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* რელევანტურობის დროპდაუნი */
+.relevance-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.relevance-checkbox {
+    display: none;
+}
+
+.relevance-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 18px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    width: calc(25% - 15px);
-    min-width: 280px;
-    flex-grow: 1;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.relevance-btn:hover {
+    background: #e5e5e5;
+}
+
+.relevance-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
     border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     padding: 8px;
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    margin-top: 8px;
 }
 
-.video-card:hover {
-    transform: translateY(-4px);
-    background-color: #f0f0f0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.video-link {
-    text-decoration: none;
-    color: inherit;
+.relevance-checkbox:checked + .relevance-btn + .relevance-menu {
     display: block;
 }
 
-.thumbnail {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    position: relative;
-    overflow: hidden;
+.relevance-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.2s ease;
+    white-space: nowrap;
 }
 
-.thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+.relevance-option:hover {
+    background: #f2f2f2;
 }
 
-.video-card:hover .thumbnail img {
-    transform: scale(1.05);
-}
-
-.duration {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
+.relevance-option.active {
+    background: #e5e5e5;
     font-weight: 500;
 }
 
-.video-info {
-    display: flex;
-    gap: 12px;
-}
-
-.channel-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    flex-shrink: 0;
+/* უკან ღილაკი */
+.back-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f0f0f0;
+    border-radius: 18px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
-.channel-avatar img {
+.back-btn:hover {
+    background: #e5e5e5;
+}
+
+/* არხების სექცია */
+.channels-section {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.channels-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.channel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    border: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.channel-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.channel-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.channel-avatar.large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid #f0f0f0;
+    transition: border-color 0.3s ease;
+}
+
+.channel-card:hover .channel-avatar.large {
+    border-color: #ff0000;
+}
+
+.channel-avatar.large img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.details {
+.channel-main-info {
     flex: 1;
     min-width: 0;
 }
 
-.details h3 {
-    font-weight: 500;
-    margin-bottom: 6px;
-    font-size: 16px;
-    line-height: 1.4;
+.channel-main-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #0f0f0f;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.channel {
+.channel-handle {
     color: #606060;
     font-size: 14px;
     margin-bottom: 4px;
-    transition: color 0.3s ease;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.subscribers {
+    color: #606060;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.channel-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.channel-description {
+    color: #606060;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* არხის ქმედებები */
+.channel-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.bell-btn {
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #606060;
+}
+
+.bell-btn:hover {
+    background: #f0f0f0;
+    color: #0f0f0f;
+}
+
+.subscribed-btn {
+    background: #f2f2f2;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #0f0f0f;
     white-space: nowrap;
 }
 
-.video-card:hover .channel {
-    color: #0f0f0f;
+.subscribed-btn:hover {
+    background: #e5e5e5;
 }
 
-.stats {
+.dropdown-btn {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
     color: #606060;
-    font-size: 14px;
-    transition: color 0.3s ease;
 }
 
-.video-card:hover .stats {
+.dropdown-btn:hover {
+    background: #f0f0f0;
     color: #0f0f0f;
 }
 
+/* ========== რესპონსივი დიზაინი ========== */
 
-
-/* დროპდაუნების ძირითადი რესპონსივი სტილი */
-.create-menu,
-.notifications-menu,
-.user-menu {
-    max-width: calc(100vw - 20px);
-    overflow-x: hidden;
-}
-
-/* შეტყობინებების სქროლბარის სტილი */
-.notifications-content::-webkit-scrollbar,
-.user-menu::-webkit-scrollbar {
-    width: 4px;
-}
-
-.notifications-content::-webkit-scrollbar-track,
-.user-menu::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 2px;
-}
-
-.notifications-content::-webkit-scrollbar-thumb,
-.user-menu::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 2px;
-}
-
-.notifications-content::-webkit-scrollbar-thumb:hover,
-.user-menu::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+/* დესკტოპისთვის შეტყობინებების დროპდაუნის ნორმალური პოზიცია */
+@media (min-width: 751px) {
+    .notifications-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: auto;
+        border-radius: 12px;
+        max-height: 80vh;
+    }
+    
+    .notifications-content {
+        max-height: calc(80vh - 60px);
+    }
 }
 
 /* 1200px - დესკტოპი */
 @media (max-width: 1200px) {
-    .video-card {
-        width: calc(33.333% - 14px);
-    }
-    
     .search-container {
         flex: 0 1 540px;
         max-width: 540px;
@@ -946,17 +1007,22 @@ nav {
 
 /* 900px - პლანშეტი */
 @media (max-width: 900px) {
-    .video-card {
-        width: calc(50% - 10px);
-    }
-    
     .search-container {
         flex: 0 1 420px;
         max-width: 420px;
     }
+    
+    .channel-card {
+        padding: 18px;
+    }
+    
+    .channel-avatar.large {
+        width: 70px;
+        height: 70px;
+    }
 }
 
-/* 790px - პლანშეტი/მობილური */
+/* 790px-ზე გვერდითი მენიუს დამალვა */
 @media (max-width: 790px) {
     .fixed-sidebar {
         display: none !important;
@@ -965,6 +1031,7 @@ nav {
     .main-content {
         margin-left: 0;
         width: 100%;
+        padding: 20px;
     }
     
     .search-container {
@@ -972,19 +1039,16 @@ nav {
         max-width: 360px;
     }
     
-    /* მობილურისთვის შეტყობინებების დროპდაუნის სრული ეკრანის რეჟიმი */
-    .notifications-menu {
-        position: fixed;
-        top: 56px;
-        right: 0;
-        left: 0;
-        width: 100%;
-        border-radius: 0;
-        max-height: calc(100vh - 56px);
+    .videos-controls {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .section-title {
+        font-size: 20px;
     }
 }
 
-/* 750px - მობილური */
 @media (max-width: 750px) {
     .search-container input {
         display: none;
@@ -1006,15 +1070,6 @@ nav {
         background: #f0f0f0;
     }
     
-    .header-tags {
-        padding: 12px;
-    }
-    
-    .video-card {
-        width: 100%;
-        min-width: auto;
-    }
-    
     .create-text {
         display: none;
     }
@@ -1025,10 +1080,8 @@ nav {
         justify-content: center;
     }
     
-    /* დროპდაუნების პოზიციის მორგება მობილურ ეკრანებზე */
     .create-menu {
-        right: -30px;
-        min-width: 180px;
+        right: -50px;
     }
     
     .notifications-menu {
@@ -1038,17 +1091,29 @@ nav {
         max-height: calc(100vh - 56px);
     }
     
-    .notifications-content {
-        max-height: calc(100vh - 120px);
+    .user-menu {
+        right: -20px;
+        min-width: 280px;
     }
     
-    .user-menu {
-        right: -10px;
-        min-width: 260px;
+    .channel-header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .channel-avatar.large {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .channel-actions {
+        justify-content: center;
     }
 }
 
-/* 650px - მობილური */
+/* 650px-ზე სერჩ ბარის შეკუმშვა */
 @media (max-width: 650px) {
     .search-container {
         flex: 0 1 auto;
@@ -1061,90 +1126,118 @@ nav {
         display: none;
     }
     
-    /* დროპდაუნების შემდგომი მორგება */
-    .create-menu {
-        right: -40px;
-        min-width: 160px;
+    /* ვიდეო კონტროლები - უფრო კომპაქტური */
+    .videos-controls {
+        gap: 12px;
+        padding: 0 4px;
+        flex-direction: column;
+        align-items: flex-start;
     }
     
-    .notifications-menu {
-        right: 0;
-        left: 0;
-        min-width: 100%;
-        max-height: calc(100vh - 56px);
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 8px;
     }
     
-    .notifications-content {
-        max-height: calc(100vh - 120px);
+    .sort-controls {
+        width: 100%;
+        justify-content: space-between;
     }
     
-    .notification-option {
-        padding: 10px 16px;
+    .relevance-btn {
+        padding: 6px 12px;
+        font-size: 13px;
     }
     
-    .notifications-header,
-    .notification-section h4 {
-        padding-left: 16px;
-        padding-right: 16px;
+    .back-btn {
+        padding: 6px 12px;
+        font-size: 13px;
     }
     
-    .user-menu {
-        right: -20px;
-        min-width: 240px;
+    .main-content {
+        padding: 16px;
+    }
+    
+    .channel-card {
+        padding: 16px;
+    }
+    
+    .channel-avatar.large {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .channel-main-info h3 {
+        font-size: 17px;
+    }
+    
+    .channel-description {
+        font-size: 13px;
     }
 }
 
-/* 570px - პატარა მობილური */
+/* 570px-ზე სერჩ ბარის შემდგომი შეკუმშვა */
 @media (max-width: 570px) {
     .search-container {
         flex: 0 1 120px;
         max-width: 120px;
     }
     
-    /* დროპდაუნების ზომის მორგება */
-    .create-menu {
-        right: -50px;
-        min-width: 150px;
+    /* ვიდეო კონტროლები - კიდევ უფრო კომპაქტური */
+    .videos-controls {
+        gap: 8px;
     }
     
-    .notifications-menu {
-        right: 0;
-        left: 0;
-        min-width: 100%;
-        max-height: calc(100vh - 56px);
+    .section-title {
+        font-size: 18px;
     }
     
-    .notifications-content {
-        max-height: calc(100vh - 120px);
+    .sort-controls {
+        gap: 8px;
     }
     
-    .notification-avatar {
-        width: 36px;
-        height: 36px;
+    .channel-card {
+        padding: 15px;
     }
     
-    .notification-title {
+    .channel-avatar.large {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .channel-main-info h3 {
+        font-size: 16px;
+    }
+    
+    .channel-handle,
+    .subscribers {
         font-size: 13px;
     }
     
-    .notification-time {
-        font-size: 11px;
+    .channel-description {
+        font-size: 12px;
     }
     
-    .user-menu {
-        right: -30px;
-        min-width: 220px;
+    .bell-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .subscribed-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+    
+    .dropdown-btn {
+        width: 32px;
+        height: 32px;
     }
 }
 
-/* 450px - პატარა მობილური */
+/* 450px-ზე მიკროფონის დამალვა */
 @media (max-width: 450px) {
     .mic-icon {
         display: none;
-    }
-    
-    .video-card {
-        width: 100%;
     }
     
     .nav-right {
@@ -1152,74 +1245,12 @@ nav {
     }
     
     .main-content {
-        padding: 16px;
-        margin-left: 0;
-        width: 100%;
+        padding: 12px;
     }
     
-    /* დროპდაუნების უკიდურესი მორგება პატარა ეკრანებზე */
     .create-menu {
-        right: -60px;
-        min-width: 140px;
-        max-width: calc(100vw - 30px);
-    }
-    
-    .notifications-menu {
-        right: 0;
-        left: 0;
-        min-width: 100%;
-        max-width: 100%;
-        max-height: calc(100vh - 56px);
-    }
-    
-    .notifications-content {
-        max-height: calc(100vh - 120px);
-    }
-    
-    .notification-option {
-        padding: 8px 14px;
-        gap: 10px;
-    }
-    
-    .notification-avatar {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .notifications-header {
-        padding: 12px 14px;
-    }
-    
-    .notification-section h4 {
-        padding: 0 14px 6px 14px;
-        font-size: 13px;
-    }
-    
-    .notification-title {
-        margin-bottom: 2px;
-    }
-    
-    .user-menu {
-        right: -30px;
-        min-width: 200px;
-        max-width: calc(100vw - 30px);
-    }
-    
-    .notifications-header,
-    .notification-section h4,
-    .notification-option,
-    .user-info,
-    .menu-option {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-}
-
-/* 400px - ძალიან პატარა ეკრანები */
-@media (max-width: 400px) {
-    .create-menu {
-        right: -70px;
-        min-width: 130px;
+        right: -80px;
+        min-width: 180px;
     }
     
     .notifications-menu {
@@ -1227,191 +1258,128 @@ nav {
         left: 0;
         min-width: 100%;
         max-height: calc(100vh - 56px);
-    }
-    
-    .notifications-content {
-        max-height: calc(100vh - 120px);
-    }
-    
-    .notification-option {
-        padding: 6px 12px;
-    }
-    
-    .notification-avatar {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .notification-details {
-        min-width: 0;
-    }
-    
-    .notification-title {
-        font-size: 12px;
-        line-height: 1.3;
-    }
-    
-    .notification-time {
-        font-size: 10px;
-    }
-    
-    .notifications-header h3 {
-        font-size: 15px;
-    }
-    
-    .notifications-header {
-        padding: 10px 12px;
-    }
-    
-    .notification-section h4 {
-        padding: 0 12px 4px 12px;
-        font-size: 12px;
     }
     
     .user-menu {
         right: -40px;
-        min-width: 180px;
+        min-width: 260px;
     }
     
-    .nav-right {
-        gap: 12px;
+    /* ვიდეო კონტროლები - მინიმალური კომპაქტურობა */
+    .videos-controls {
+        gap: 6px;
+        padding: 0 2px;
+    }
+    
+    .section-title {
+        font-size: 16px;
+    }
+    
+    .relevance-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+    
+    .back-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+    
+    .channel-card {
+        padding: 12px;
+    }
+    
+    .channel-avatar.large {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .channel-main-info h3 {
+        font-size: 15px;
+    }
+    
+    .channel-handle,
+    .subscribers {
+        font-size: 12px;
+    }
+    
+    .channel-description {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    .bell-btn {
+        width: 32px;
+        height: 32px;
+        background: #f8f8f8;
+        border: 1px solid #ddd;
+    }
+    
+    .subscribed-btn {
+        width: 100%;
+        text-align: center;
     }
 }
 
-/* 360px - მინიმალური ეკრანები */
-@media (max-width: 360px) {
-    .create-menu {
-        right: -80px;
-        min-width: 120px;
+/* 350px-ზე კიდევ უფრო პატარა ეკრანებისთვის */
+@media (max-width: 350px) {
+    .videos-controls {
+        gap: 4px;
     }
     
-    .notifications-menu {
-        right: 0;
-        left: 0;
-        min-width: 100%;
-        max-height: calc(100vh - 56px);
+    .section-title {
+        font-size: 14px;
     }
     
-    .notifications-content {
-        max-height: calc(100vh - 120px);
-    }
-    
-    .notification-option {
-        padding: 5px 10px;
-        gap: 8px;
-    }
-    
-    .notification-avatar {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .notification-title {
+    .relevance-btn {
+        padding: 3px 8px;
         font-size: 11px;
     }
     
-    .notification-time {
-        font-size: 9px;
+    .back-btn {
+        padding: 3px 8px;
+        font-size: 11px;
     }
     
-    .user-menu {
-        right: -50px;
-        min-width: 160px;
+    .channel-card {
+        padding: 10px;
     }
     
-    .notification-option,
-    .menu-option {
-        padding: 10px 16px;
+    .channel-avatar.large {
+        width: 45px;
+        height: 45px;
     }
     
-    .user-info {
-        padding: 0 16px 12px 16px;
-    }
-}
-
-/* 320px - ულტრა პატარა ეკრანები */
-@media (max-width: 320px) {
-    .create-menu {
-        right: -90px;
-        min-width: 110px;
+    .channel-main-info h3 {
+        font-size: 14px;
     }
     
-    .notifications-menu {
-        right: 0;
-        left: 0;
-        min-width: 100%;
-        max-height: calc(100vh - 56px);
+    .channel-handle,
+    .subscribers {
+        font-size: 11px;
     }
     
-    .notifications-content {
-        max-height: calc(100vh - 120px);
+    .channel-description {
+        font-size: 10px;
     }
     
-    .notification-option {
-        padding: 4px 8px;
+    .channel-actions {
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
     }
     
-    .notifications-header {
-        padding: 8px 10px;
-    }
-    
-    .notification-section h4 {
-        padding: 0 10px 4px 10px;
-    }
-    
-    .notification-title {
-        line-height: 1.2;
-    }
-    
-    .user-menu {
-        right: -60px;
-        min-width: 140px;
-    }
-    
-    .create-option,
-    .menu-option {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-    
-    .notification-option {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-    
-    .notification-title {
-        font-size: 13px;
-    }
-}
-
-/* ვერტიკალური ორიენტაციისთვის დამატებითი სტილი */
-@media (max-height: 600px) {
-    .notifications-menu {
-        max-height: calc(100vh - 56px);
-    }
-    
-    .notifications-content {
-        max-height: calc(100vh - 120px);
-    }
-}
-
-@media (max-height: 500px) {
-    .notifications-menu {
-        max-height: calc(100vh - 56px);
-    }
-    
-    .notifications-content {
-        max-height: calc(100vh - 120px);
-    }
-}
-
-@media (max-height: 400px) {
-    .notifications-menu {
-        max-height: calc(100vh - 56px);
-    }
-    
-    .notifications-content {
-        max-height: calc(100vh - 120px);
+    .action-buttons {
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -1424,23 +1392,61 @@ nav {
     .notifications-content {
         max-height: calc(100vh - 120px);
     }
-}
-
-/* დესკტოპისთვის დიდ ეკრანებზე */
-@media (min-width: 1200px) {
-    .notifications-menu {
-        min-width: 380px;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: auto;
-        width: auto;
-        border-radius: 12px;
-        max-height: 80vh;
+    
+    .main-content {
+        padding: 16px;
     }
     
-    .notifications-content {
-        max-height: calc(80vh - 60px);
+    .channel-header {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .channel-actions {
+        justify-content: flex-end;
+    }
+}
+
+/* ძალიან პატარა ეკრანებისთვის დამატებითი სტილი */
+@media (max-width: 320px) {
+    .nav-left {
+        gap: 16px;
+    }
+    
+    .logo span {
+        display: none;
+    }
+    
+    .search-container {
+        flex: 0 1 80px;
+        max-width: 80px;
+    }
+    
+    .nav-right {
+        gap: 12px;
+    }
+    
+    .main-content {
+        padding: 8px;
+    }
+    
+    .videos-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .sort-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .channel-card {
+        padding: 8px;
+    }
+    
+    .channel-description {
+        display: none;
     }
 }
 
@@ -1457,23 +1463,7 @@ nav {
 /* დროპდაუნებისთვის ფიქსირებული მაქსიმალური სიგანე */
 .create-menu,
 .notifications-menu,
-.user-menu {
+.user-menu,
+.relevance-menu {
     box-sizing: border-box;
-}
-
-/* დესკტოპისთვის შეტყობინებების დროპდაუნის ნორმალური პოზიცია  ძილვსსსს მოგვარდააა*/
-@media (min-width: 751px) {
-    .notifications-menu {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: auto;
-        width: auto;
-        border-radius: 12px;
-        max-height: 80vh;
-    }
-    
-    .notifications-content {
-        max-height: calc(80vh - 60px);
-    }
 }
