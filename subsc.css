@@ -807,7 +807,7 @@ nav {
 }
 
 .view-controls i.active {
-    background: #e5e5e5;
+    background:transparent;
     color: #0f0f0f;
 }
 
