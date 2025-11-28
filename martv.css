@@ -41,6 +41,7 @@ a:hover {
     color: #0f0f0f;
 }
 
+/* ========== ჰედერის სტილები (იდენტური Shorts-თან) ========== */
 header {
     background: white;
     position: sticky;
@@ -615,7 +616,12 @@ nav {
     margin-top: 16px;
 }
 
-/* მთავარი კონტენტი */
+/* ========== მთავარი კონტენტი (მართვის გვერდისთვის) ========== */
+.container {
+    display: flex;
+    min-height: calc(100vh - 56px);
+}
+
 .main-content {
     flex: 1;
     padding: 24px;
@@ -623,14 +629,13 @@ nav {
     width: calc(100% - 72px);
 }
 
-/* ვიდეოების ზემოთ კონტროლები */
+/* ვიდეოების ზემოთ კონტროლები - განლაგება ერთმანეთის ქვემოთ */
 .videos-controls {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 24px;
     padding: 0 8px;
-    flex-wrap: wrap;
     gap: 16px;
 }
 
@@ -644,6 +649,8 @@ nav {
     display: flex;
     align-items: center;
     gap: 16px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 /* რელევანტურობის დროპდაუნი */
@@ -824,9 +831,11 @@ nav {
     font-size: 14px;
     line-height: 1.4;
     margin-bottom: 12px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 /* არხის ქმედებები */
@@ -904,104 +913,251 @@ nav {
     color: #0f0f0f;
 }
 
-.container {
+/* ========== ზარის ღილაკების დროპდაუნის სტილები ========== */
+
+/* ზოგადი დროპდაუნის სტრუქტურა */
+.action-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.action-checkbox {
+    display: none;
+}
+
+.action-btn {
     display: flex;
-    min-height: calc(100vh - 56px);
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
-/* ========== არხის ქმედებების რესპონსივი სტილი ========== */
+.action-btn:hover {
+    background: #e5e5e5;
+}
 
-/* 650px-ზე ნაკლებზე - დამალეთ ქმედებების ღილაკები */
-@media (max-width: 650px) {
-    .channel-actions {
-        display: none !important;
+.action-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+    margin-top: 8px;
+}
+
+.action-checkbox:checked + .action-btn + .action-menu {
+    display: block;
+}
+
+.action-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #0f0f0f;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.action-option:hover {
+    background: #f2f2f2;
+}
+
+.action-option i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #606060;
+}
+
+/* კონკრეტული ზარის ღილაკების დროპდაუნი */
+.call-dropdown {
+    position: relative;
+}
+
+.call-checkbox {
+    display: none;
+}
+
+.call-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.call-btn:hover {
+    transform: scale(1.05);
+}
+
+.call-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border: 2px solid rgba(224, 224, 224, 0.6);
+    transition: all 0.2s ease;
+}
+
+.call-icon i {
+    font-size: 18px;
+    color: #333;
+}
+
+.call-btn span {
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.call-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    margin-bottom: 8px;
+}
+
+.call-checkbox:checked + .call-btn + .call-menu {
+    display: block;
+}
+
+.call-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #0f0f0f;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.call-option:hover {
+    background: #f2f2f2;
+}
+
+.call-option i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #606060;
+}
+
+/* ========== რესპონსივი სტილები ========== */
+
+/* 1200px-ზე მეტზე - დესკტოპი */
+@media (min-width: 1201px) {
+    .search-container {
+        flex: 0 1 640px;
+        max-width: 640px;
     }
     
-    .channel-header {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-        gap: 12px;
+    .create-menu {
+        right: 0;
+        min-width: 220px;
     }
     
-    .channel-avatar.large {
-        width: 50px;
-        height: 50px;
-        flex-shrink: 0;
+    .notifications-menu {
+        right: 0;
+        min-width: 380px;
     }
     
-    .channel-main-info {
-        flex: 1;
-        min-width: 0;
-    }
-    
-    .channel-main-info h3 {
-        font-size: 16px;
-        margin-bottom: 2px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .channel-handle {
-        font-size: 13px;
-        margin-bottom: 2px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .subscribers {
-        font-size: 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .user-menu {
+        right: 0;
+        min-width: 320px;
     }
 }
 
-/* 450px-ზე ნაკლებზე - კიდევ უფრო კომპაქტური */
-@media (max-width: 450px) {
-    .channel-avatar.large {
-        width: 45px;
-        height: 45px;
+/* 1200px-დან 901px-მდე - ლაპტოპი */
+@media (max-width: 1200px) and (min-width: 901px) {
+    .search-container {
+        flex: 0 1 500px;
+        max-width: 500px;
     }
     
-    .channel-main-info h3 {
-        font-size: 15px;
+    .create-menu {
+        right: -10px;
+        min-width: 200px;
     }
     
-    .channel-handle {
-        font-size: 12px;
+    .notifications-menu {
+        right: -10px;
+        min-width: 340px;
     }
     
-    .subscribers {
-        font-size: 11px;
+    .user-menu {
+        right: -10px;
+        min-width: 280px;
     }
 }
 
-/* 350px-ზე ნაკლებზე - მინიმალური ზომები */
-@media (max-width: 350px) {
-    .channel-avatar.large {
-        width: 40px;
-        height: 40px;
+/* 900px-დან 751px-მდე - ტაბლეტი */
+@media (max-width: 900px) and (min-width: 751px) {
+    .search-container {
+        flex: 0 1 400px;
+        max-width: 400px;
     }
     
-    .channel-main-info h3 {
-        font-size: 14px;
+    .create-menu {
+        right: -20px;
+        min-width: 180px;
     }
     
-    .channel-handle {
-        font-size: 11px;
+    .notifications-menu {
+        right: -20px;
+        min-width: 320px;
     }
     
-    .subscribers {
-        font-size: 10px;
+    .user-menu {
+        right: -20px;
+        min-width: 260px;
+    }
+    
+    .create-text {
+        display: none;
+    }
+    
+    .create-btn {
+        width: 36px;
+        padding: 0;
+        justify-content: center;
     }
 }
 
-/* ========== რესპონსივი დიზაინი ========== */
-
-/* 790px-ზე გვერდითი მენიუს დამალვა */
+/* 790px-ზე ნაკლებზე მარცხენა მხარის აიქონები ქრება */
 @media (max-width: 790px) {
     .fixed-sidebar {
         display: none;
@@ -1023,6 +1179,7 @@ nav {
     }
 }
 
+/* 750px - მობილური */
 @media (max-width: 750px) {
     .search-container input {
         display: none;
@@ -1048,15 +1205,42 @@ nav {
     .notifications-menu {
         right: 0;
         min-width: 100%;
+        border-radius: 0;
     }
     
     .user-menu {
         right: -10px;
         min-width: 260px;
     }
+    
+    .nav-right {
+        gap: 15px;
+    }
 }
 
-/* 650px-ზე სერჩ ბარის შეკუმშვა */
+/* 700px-დან 601px-მდე - მობილური */
+@media (max-width: 700px) and (min-width: 601px) {
+    .create-menu {
+        right: -35px;
+        min-width: 170px;
+    }
+    
+    .notifications-menu {
+        right: 0;
+        min-width: 100%;
+    }
+    
+    .user-menu {
+        right: -15px;
+        min-width: 250px;
+    }
+    
+    .search-container {
+        flex: 0 1 auto;
+    }
+}
+
+/* 650px - მობილური */
 @media (max-width: 650px) {
     .search-container {
         flex: 0 1 auto;
@@ -1069,83 +1253,86 @@ nav {
         display: none;
     }
     
-    /* ვიდეო კონტროლები - უფრო კომპაქტური */
-    .videos-controls {
+    .create-menu {
+        right: -40px;
+        min-width: 160px;
+    }
+    
+    .notifications-menu {
+        right: 0;
+        min-width: 100%;
+    }
+    
+    .notification-option {
+        padding: 10px 16px;
+    }
+    
+    .notifications-header,
+    .notification-section h4 {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .user-menu {
+        right: -20px;
+        min-width: 240px;
+    }
+    
+    .nav-right {
         gap: 12px;
-        padding: 0 4px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .section-title {
-        font-size: 20px;
-        margin-bottom: 8px;
-    }
-    
-    .sort-controls {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    .relevance-btn {
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-    
-    .back-btn {
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-    
-    .main-content {
-        padding: 16px;
-    }
-    
-    .channel-card {
-        padding: 16px;
-    }
-    
-    .channel-avatar.large {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .channel-main-info h3 {
-        font-size: 17px;
-    }
-    
-    .channel-description {
-        font-size: 13px;
     }
 }
 
-/* 570px-ზე სერჩ ბარის შემდგომი შეკუმშვა */
-@media (max-width: 570px) {
-    .search-container {
-        flex: 0 1 120px;
-        max-width: 120px;
+/* 600px-ზე ნაკლებზე - გამოწერილია ღილაკი, სამი წერტილი და უკან ღილაკი ქრება */
+@media (max-width: 600px) {
+    .create-menu {
+        right: -45px;
+        min-width: 150px;
     }
     
-    /* ვიდეო კონტროლები - კიდევ უფრო კომპაქტური */
-    .videos-controls {
-        gap: 8px;
+    .user-menu {
+        right: -25px;
+        min-width: 220px;
     }
     
-    .section-title {
-        font-size: 18px;
+    .nav-right {
+        gap: 10px;
     }
     
-    .sort-controls {
-        gap: 8px;
+    /* არხის ქმედებების რესპონსივი სტილი - მხოლოდ ღილაკები ქრება, უსერის ფოტო რჩება */
+    .channel-actions {
+        display: none !important;
     }
     
+    .action-buttons,
+    .bell-btn,
+    .subscribed-btn,
+    .dropdown,
+    .dropdown-btn {
+        display: none !important;
+    }
+    
+    /* უკან ღილაკის დამალვა */
+    .back-btn {
+        display: none !important;
+    }
+    
+    /* არხის ბარათის რესპონსივი - უსერის ფოტო რჩება */
     .channel-card {
-        padding: 15px;
+        padding: 16px;
+    }
+    
+    .channel-header {
+        flex-direction: row; /* უსერის ფოტო მარცხენა მხარეს რჩება */
+        align-items: flex-start;
+        text-align: left;
+        gap: 12px;
     }
     
     .channel-avatar.large {
         width: 60px;
         height: 60px;
+        flex-shrink: 0;
     }
     
     .channel-main-info h3 {
@@ -1158,59 +1345,71 @@ nav {
     }
     
     .channel-description {
-        font-size: 12px;
+        font-size: 13px;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
     }
 }
 
-/* 450px-ზე მიკროფონის დამალვა */
-@media (max-width: 450px) {
-    .mic-icon {
-        display: none;
-    }
-    
-    .nav-right {
-        gap: 16px;
-    }
-    
-    .main-content {
-        padding: 12px;
-    }
-    
+/* 550px-ზე ნაკლებზე */
+@media (max-width: 550px) {
     .create-menu {
-        right: -80px;
-        min-width: 180px;
-    }
-    
-    .notifications-menu {
-        right: 0;
-        left: 0;
-        min-width: 100%;
-        max-height: calc(100vh - 56px);
+        right: -50px;
+        min-width: 140px;
     }
     
     .user-menu {
-        right: -40px;
-        min-width: 260px;
+        right: -30px;
+        min-width: 200px;
     }
     
-    /* ვიდეო კონტროლები - მინიმალური კომპაქტურობა */
+    .nav-right {
+        gap: 8px;
+    }
+    
+    .main-content {
+        padding: 16px;
+    }
+    
     .videos-controls {
-        gap: 6px;
-        padding: 0 2px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .sort-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
     }
     
     .section-title {
-        font-size: 16px;
+        font-size: 20px;
     }
     
-    .relevance-btn {
-        padding: 4px 10px;
-        font-size: 12px;
+    .channel-avatar.large {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* 500px-ზე ნაკლებზე */
+@media (max-width: 500px) {
+    .create-menu {
+        right: -55px;
+        min-width: 130px;
     }
     
-    .back-btn {
-        padding: 4px 10px;
-        font-size: 12px;
+    .user-menu {
+        right: -35px;
+        min-width: 180px;
+    }
+    
+    .nav-left {
+        gap: 15px;
+    }
+    
+    .nav-right {
+        gap: 6px;
     }
     
     .channel-card {
@@ -1225,36 +1424,64 @@ nav {
     .channel-main-info h3 {
         font-size: 15px;
     }
-    
-    .channel-handle,
-    .subscribers {
-        font-size: 12px;
+}
+
+/* 450px-ზე ნაკლებზე */
+@media (max-width: 450px) {
+    .create-menu {
+        right: -60px;
+        min-width: 120px;
     }
     
-    .channel-description {
-        font-size: 11px;
-        line-height: 1.3;
+    .user-menu {
+        right: -40px;
+        min-width: 160px;
+    }
+    
+    .nav {
+        padding: 0 12px;
+    }
+    
+    .menu-option {
+        padding: 10px 16px;
+    }
+    
+    .user-info {
+        padding: 0 16px 12px 16px;
+    }
+    
+    .main-content {
+        padding: 12px;
+    }
+    
+    .channels-grid {
+        gap: 12px;
+    }
+    
+    .channel-avatar.large {
+        width: 45px;
+        height: 45px;
     }
 }
 
-/* 350px-ზე კიდევ უფრო პატარა ეკრანებისთვის */
-@media (max-width: 350px) {
-    .videos-controls {
+/* 410px-ზე ნაკლებზე */
+@media (max-width: 410px) {
+    .create-menu {
+        right: -65px;
+        min-width: 110px;
+    }
+    
+    .user-menu {
+        right: -45px;
+        min-width: 150px;
+    }
+    
+    .nav {
+        padding: 0 10px;
+    }
+    
+    .nav-right {
         gap: 4px;
-    }
-    
-    .section-title {
-        font-size: 14px;
-    }
-    
-    .relevance-btn {
-        padding: 3px 8px;
-        font-size: 11px;
-    }
-    
-    .back-btn {
-        padding: 3px 8px;
-        font-size: 11px;
     }
     
     .channel-card {
@@ -1262,8 +1489,8 @@ nav {
     }
     
     .channel-avatar.large {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
     
     .channel-main-info h3 {
@@ -1271,29 +1498,382 @@ nav {
     }
     
     .channel-handle,
-    .subscribers {
+    .subscribers,
+    .channel-description {
+        font-size: 12px;
+    }
+}
+
+/* 380px-ზე ნაკლებზე */
+@media (max-width: 380px) {
+    .create-menu {
+        right: -70px;
+        min-width: 100px;
+    }
+    
+    .user-menu {
+        right: -50px;
+        min-width: 140px;
+    }
+    
+    .menu-option {
+        padding: 8px 14px;
+        gap: 12px;
+    }
+    
+    .menu-option i {
+        font-size: 14px;
+    }
+    
+    .channel-avatar.large {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* 350px-ზე ნაკლებზე */
+@media (max-width: 350px) {
+    .create-menu {
+        right: -75px;
+        min-width: 90px;
+    }
+    
+    .user-menu {
+        right: -55px;
+        min-width: 130px;
+    }
+    
+    .nav {
+        padding: 0 8px;
+    }
+    
+    .create-option {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    
+    .create-option i {
+        font-size: 14px;
+    }
+    
+    .channel-card {
+        padding: 8px;
+    }
+    
+    .channel-avatar.large {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* 320px-ზე ნაკლებზე - ძალიან პატარა ეკრანები */
+@media (max-width: 320px) {
+    .nav-right i {
+        font-size: 16px;
+    }
+    
+    .user-avatar {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .create-menu,
+    .user-menu,
+    .notifications-menu {
+        max-width: 95vw;
+    }
+    
+    .main-content {
+        padding: 8px;
+    }
+    
+    .channel-main-info h3 {
+        font-size: 13px;
+    }
+    
+    .channel-handle,
+    .subscribers,
+    .channel-description {
         font-size: 11px;
     }
     
-    .channel-description {
+    .channel-avatar.large {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* დესკტოპისთვის შეტყობინებების დროპდაუნის ნორმალური პოზიცია */
+@media (min-width: 751px) {
+    .notifications-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: auto;
+        border-radius: 12px;
+    }
+}
+
+/* დროპდაუნების უნივერსალური რესპონსივი */
+@media (max-width: 480px) {
+    .create-menu,
+    .user-menu,
+    .notifications-menu {
+        position: fixed;
+        top: 56px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90vw;
+        max-width: none;
+        border-radius: 12px;
+    }
+    
+    .create-menu {
+        width: auto;
+        min-width: 150px;
+    }
+}
+
+/* 600px-ზე მეტზე ღილაკები გარეთ */
+@media (min-width: 601px) {
+    .right-panel-inside {
+        display: none;
+    }
+    
+    .right-panel-outside {
+        display: flex;
+    }
+    
+    .right-btn span {
+        color: #333;
+        text-shadow: none;
+        font-size: 11px;
+    }
+    
+    .right-icon {
+        width: 44px;
+        height: 44px;
+        border: 2px solid rgba(224, 224, 224, 0.6);
+    }
+    
+    .right-icon i {
+        font-size: 18px;
+    }
+    
+    .album-cover {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .scroll-btn {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .scroll-btn i {
+        font-size: 16px;
+    }
+}
+
+/* 600px-ზე ნაკლებზე ღილაკები შიგნით */
+@media (max-width: 600px) {
+    .right-panel-inside {
+        display: flex;
+    }
+    
+    .right-panel-outside {
+        display: none;
+    }
+    
+    .right-panel-inside {
+        bottom: 90px;
+        gap: 12px;
+    }
+    
+    .right-icon {
+        width: 44px;
+        height: 44px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .right-icon i {
+        font-size: 18px;
+    }
+    
+    .right-btn span {
+        font-size: 11px;
+    }
+    
+    .album-cover {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .scroll-buttons {
+        display: none;
+    }
+}
+
+/* 550px-ზე ნაკლებზე */
+@media (max-width: 550px) {
+    .right-panel-inside {
+        bottom: 85px;
+        gap: 11px;
+    }
+    
+    .right-icon {
+        width: 42px;
+        height: 42px;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+    }
+    
+    .right-icon i {
+        font-size: 17px;
+    }
+    
+    .album-cover {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .right-btn span {
         font-size: 10px;
     }
 }
 
-/* დროპდაუნებისთვის ტექსტის გაწმენდა */
-.create-option span,
-.menu-option span,
-.notification-title,
-.user-details h3,
-.user-details p {
-    overflow: hidden;
-    text-overflow: ellipsis;
+/* 500px-ზე ნაკლებზე */
+@media (max-width: 500px) {
+    .right-panel-inside {
+        bottom: 80px;
+        gap: 10px;
+    }
+    
+    .right-icon {
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+    
+    .right-icon i {
+        font-size: 16px;
+    }
+    
+    .album-cover {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .right-btn span {
+        font-size: 10px;
+    }
 }
 
-/* დროპდაუნებისთვის ფიქსირებული მაქსიმალური სიგანე */
-.create-menu,
-.notifications-menu,
-.user-menu,
-.relevance-menu {
-    box-sizing: border-box;
+/* 450px-ზე ნაკლებზე */
+@media (max-width: 450px) {
+    .right-panel-inside {
+        bottom: 75px;
+        gap: 9px;
+    }
+    
+    .right-icon {
+        width: 38px;
+        height: 38px;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+    
+    .right-icon i {
+        font-size: 15px;
+    }
+    
+    .album-cover {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .right-btn span {
+        font-size: 9px;
+    }
+}
+
+/* 410px-ზე ნაკლებზე */
+@media (max-width: 410px) {
+    .right-panel-inside {
+        bottom: 70px;
+        gap: 8px;
+    }
+    
+    .right-icon {
+        width: 36px;
+        height: 36px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .right-icon i {
+        font-size: 14px;
+    }
+    
+    .album-cover {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .right-btn span {
+        font-size: 9px;
+    }
+}
+
+/* 380px-ზე ნაკლებზე */
+@media (max-width: 380px) {
+    .right-panel-inside {
+        bottom: 65px;
+        gap: 7px;
+    }
+    
+    .right-icon {
+        width: 34px;
+        height: 34px;
+        border: 2px solid rgba(255, 255, 255, 0.55);
+    }
+    
+    .right-icon i {
+        font-size: 13px;
+    }
+    
+    .album-cover {
+        width: 34px;
+        height: 34px;
+    }
+    
+    .right-btn span {
+        font-size: 8px;
+    }
+}
+
+/* 350px-ზე ნაკლებზე */
+@media (max-width: 350px) {
+    .right-panel-inside {
+        bottom: 60px;
+        gap: 6px;
+    }
+    
+    .right-icon {
+        width: 32px;
+        height: 32px;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+    
+    .right-icon i {
+        font-size: 12px;
+    }
+    
+    .album-cover {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .right-btn span {
+        font-size: 8px;
+    }
 }

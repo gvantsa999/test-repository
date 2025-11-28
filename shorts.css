@@ -931,8 +931,6 @@ nav {
     min-height: calc(100vh - 56px);
 }
 
-/* ========== რესპონსივი სტილი ========== */
-
 /* 600px-ზე მეტზე ღილაკები გარეთ */
 @media (min-width: 601px) {
     .right-panel-inside {
