@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ბურგერ მენიუს ჩეკბოქსი i love hamburger;) -->
+    <!-- ბურგერ მენიუს ჩეკბოქსი -->
     <input type="checkbox" id="burger-toggle" class="burger-checkbox">
     
     <header>
@@ -159,7 +159,7 @@
                             </a>
                             <a href="#" class="menu-option">
                                 <i class="fa-solid fa-crown"></i>
-                                <span>შესყიდვები და წევრობები</span>
+                                <span>შესყიდვები და წევრება</span>
                             </a>
                             <a href="#" class="menu-option">
                                 <i class="fa-solid fa-database"></i>
@@ -212,22 +212,25 @@
             </div>
         </nav>
         
-        <div class="header-tags">
-            <a href="index.html" class="tag active">ყველა</a>
-            <a href="https://www.youtube.com/results?search_query=music" target="_blank" class="tag">მუსიკა</a>
-            <a href="https://www.youtube.com/results?search_query=games" target="_blank" class="tag">თამაშები</a>
-            <a href="https://www.youtube.com/results?search_query=tik+tok" target="_blank" class="tag">ტიკ-ტოკი</a>
-            <a href="https://www.youtube.com/results?search_query=lives" target="_blank" class="tag">ლაივები</a>
-            <a href="https://www.youtube.com/results?search_query=series" target="_blank" class="tag">სერიალები</a>
-            <a href="https://www.youtube.com/results?search_query=films" target="_blank" class="tag">ფილმები</a>
-            <a href="https://www.youtube.com/results?search_query=trilers" target="_blank" class="tag">ტრილერები</a>
-            <a href="https://www.youtube.com/results?search_query=news" target="_blank" class="tag">ახალი ამბები</a>
-            <a href="https://www.youtube.com/results?search_query=cooking" target="_blank" class="tag">კულინარია</a>
-            <a href="https://www.youtube.com/results?search_query=comedy" target="_blank" class="tag">კომედია</a>
-            <a href="https://www.youtube.com/results?search_query=technology" target="_blank" class="tag">ტექნოლოგია</a>
-            <!-- ისრის აიქონი ტეგების სიისთვის -->
-            <div class="tags-arrow">
-                <i class="fas fa-chevron-right"></i>
+        <!-- Separate container for tags -->
+        <div class="header-tags-container">
+            <div class="header-tags">
+                <a href="index.html" class="tag active">ყველა</a>
+                <a href="https://www.youtube.com/results?search_query=music" target="_blank" class="tag">მუსიკა</a>
+                <a href="https://www.youtube.com/results?search_query=games" target="_blank" class="tag">თამაშები</a>
+                <a href="https://www.youtube.com/results?search_query=tik+tok" target="_blank" class="tag">ტიკ-ტოკი</a>
+                <a href="https://www.youtube.com/results?search_query=lives" target="_blank" class="tag">ლაივები</a>
+                <a href="https://www.youtube.com/results?search_query=series" target="_blank" class="tag">სერიალები</a>
+                <a href="https://www.youtube.com/results?search_query=films" target="_blank" class="tag">ფილმები</a>
+                <a href="https://www.youtube.com/results?search_query=trilers" target="_blank" class="tag">ტრილერები</a>
+                <a href="https://www.youtube.com/results?search_query=news" target="_blank" class="tag">ახალი ამბები</a>
+                <a href="https://www.youtube.com/results?search_query=cooking" target="_blank" class="tag">კულინარია</a>
+                <a href="https://www.youtube.com/results?search_query=comedy" target="_blank" class="tag">კომედია</a>
+                <a href="https://www.youtube.com/results?search_query=technology" target="_blank" class="tag">ტექნოლოგია</a>
+                <!-- ისრის აიქონი ტეგების სიისთვის -->
+                <div class="tags-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -266,13 +269,13 @@
             <a href="https://www.youtube.com/feed/downloads" class="sidebar-link">
                 <div class="sidebar-item">
                     <i class="fa-solid fa-download"></i>
-                    <span>ჩამოტვირთვები</span>
+                    <span>თქვენ</span>
                 </div>
             </a>
             <a href="https://www.youtube.com/feed/you" class="sidebar-link">
                 <div class="sidebar-item">
                     <i class="fas fa-user"></i>
-                    <span>თქვენ</span>
+                    <span>ჩამოტვირთვები</span>
                 </div>
             </a>
             
@@ -406,7 +409,7 @@
     </div>
     
     <div class="container">
-        <!-- გამარტივებული გვერდითი პანელი -->
+        <!-- ფიქსირებული გვერდითი პანელი -->
         <aside class="fixed-sidebar">
             <a href="index.html" class="sidebar-link">
                 <div class="sidebar-item active">
